@@ -50,6 +50,9 @@ module.exports = {
         }, {
             test: /\.html$/,
             loader: 'html?attrs=img:src img:srcset'
+        }, {
+            test: /\.css$/,
+            loaders: ['style','css']
         }]
     },
     plugins: [

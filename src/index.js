@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Routes from './routes';
+import { Input } from 'antd';
+import 'antd/dist/antd.css';
  
 ReactDOM.render(
-  <h1>Hello, world!!!!</h1>,
+  Routes,
   document.getElementById('content')
 );
