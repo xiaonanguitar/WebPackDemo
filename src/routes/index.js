@@ -6,13 +6,10 @@ import Detail from '../views/Detail';
 
 const Routes = (
     <HashRouter>
-        <div>
-            <Route exact path='/'  component={Frame}>
-                <Route path='/' component={Home}/>
-                <Route path='/detail/:id'  component={Detail}/>
-            </Route>
-            >
-        </div>
+        <Frame>
+            <Route exact path='/' component={Home}/>
+            <Route path='/detail/:id'  component={Detail}/>
+        </Frame>
     </HashRouter>
 )
 
