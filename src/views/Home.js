@@ -1,5 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import PreviewList from '../components/Home/PreviewList';
+import * as listActions from '../components/Home/PreviewListRedux';
 
-const Home = () => (<h1>Home</h1>)
+class Home extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Home</h1>
+                <PreviewList articleList={this.props.list} loadArticles={this.props.listActions.loadArticles}/>
+            </div>
+        )
+    }
+}
 
-export default Home;
+export default connect(state=>{
+    return {
+        list:state.list.articleList
+    }
+},dispatch=>{
+    return {
+        listActions: bindActionCreators(listActions,dispatch)
+    }
+})(Home);
