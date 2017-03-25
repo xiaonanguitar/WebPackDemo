@@ -6,13 +6,17 @@ import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
 import Routes from './routes';
 import { Input } from 'antd';
+import DevTools from './redux/DevTools';
 import 'antd/dist/antd.css';
  
 const store = configureStore();
 
 ReactDOM.render((  
   <Provider store={store}>
-    {Routes}
+    <div>
+      {Routes}
+      <DevTools/>
+    </div>
   </Provider>),
   document.getElementById('content')
 );
