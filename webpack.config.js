@@ -22,7 +22,9 @@ var getEntry = function() {
 };
 var prod = process.env.NODE_ENV === 'production' ? true : false;
 module.exports = {
-    entry: getEntry(),
+    entry: [
+        path.resolve(__dirname, './src')
+    ],
     output: {
         path: path.resolve(__dirname, prod ? "./dist" : "./build"),
         filename: prod ? "js/[name].min.js" : "js/[name].js",

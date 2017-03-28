@@ -9,7 +9,7 @@ class Home extends Component {
         return (
             <div>
                 <h1>Home</h1>
-                <PreviewList articleList={this.props.list} loadArticles={this.props.listActions.loadArticles}/>
+                <PreviewList articleList={this.props.list} {...this.props.listActions}/>
             </div>
         )
     }

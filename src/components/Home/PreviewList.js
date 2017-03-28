@@ -37,6 +37,7 @@ PreviewList.propTypes= {
 export default connect(state=>{
     return {
         loading: state.list.loading,
-        error: state.list.error
+        error: state.list.error,
+        articleList: state.list.articleList
     }
 })(PreviewList);

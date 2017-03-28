@@ -10,7 +10,7 @@ const LOAD_ARTICLES_ERROR = 'LOAD_ARTICLES_ERROR';
 
 export function loadArticles() {
     return {
-        type: [LOAD_ARTICLES,LOAD_ARTICLES_SUCCESS,LOAD_ARTICLES_ERROR],
+        types: [LOAD_ARTICLES,LOAD_ARTICLES_SUCCESS,LOAD_ARTICLES_ERROR],
         url: '/api/articles.json'
     }
 }
@@ -18,25 +18,23 @@ export function loadArticles() {
 function previewlist(state=initialState,action) {
     switch(action.type) {
         case LOAD_ARTICLES: {
-            return {
-                articleList: state.articleList,
+            return Object.assign({},state,{
                 loading: true,
                 error: false,
-            }
+            })
         }
         case LOAD_ARTICLES_SUCCESS: {
-            return {
+            return Object.assign({},state,{
                 loading: false,
                 error: false,
                 articleList: action.payload.articleList,
-            }
+            })
         }
         case LOAD_ARTICLES_ERROR: {
-            return {
-                articleList: state.articleList,
+            return Object.assign({},state,{
                 loading: false,
                 error: true,
-            }
+            })
         }
         default:
             return state;
