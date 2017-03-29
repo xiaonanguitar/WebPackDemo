@@ -1,11 +1,14 @@
 import React, { PropTypes, Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import * as PreviewListActions from './PreviewListRedux';
 import Preview from './Preview';
 
 class PreviewList extends Component {
 
     componentDidMount() {
-        this.props.loadArticles();
+        const {loadArticles} = this.props.preActions;
+        loadArticles();
     }
 
     render() {
@@ -16,13 +19,14 @@ class PreviewList extends Component {
         if(loading){
             return <p className="message">Loading...</p>
         }
-        if(articleList.length===0){
-             return <div></div>
-        }
-        return (
-        articleList.map(item => {
-                <Preview {...item} key={item.id}></Preview>
-            })
+        return  (
+            <div>
+                {
+                    articleList.map(item => 
+                        <Preview {...item} key={item.id}></Preview>
+                    )
+                }
+            </div>
         )
     }
 }
@@ -39,5 +43,9 @@ export default connect(state=>{
         loading: state.list.loading,
         error: state.list.error,
         articleList: state.list.articleList
+    }
+},dispatch=>{
+    return {
+        preActions: bindActionCreators(PreviewListActions,dispatch)
     }
 })(PreviewList);

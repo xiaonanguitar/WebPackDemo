@@ -1,7 +1,9 @@
 {
-    [
-        "id": '1',
-        "title": 'ddd',
-        "description": 'dsaf'
+    "articleList": [
+        {
+            "id": "1",
+            "title": "ddd",
+            "description": "dsaf"
+        }
     ]
 }
