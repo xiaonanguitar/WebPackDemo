@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './Preview.css';
 
 class Preview extends Component {
-
+    
     render() {
+        
         return (
             <article className="article-preview-item">
                 <h1 className="tiitle">{this.props.title}</h1>
@@ -13,6 +14,7 @@ class Preview extends Component {
         )
     }
 }
+
 
 Preview.propTypes = {
     titile: React.PropTypes.string,

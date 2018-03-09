@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "dev": "webpack-dev-server --hot --inline",
+    "dev": "webpack-dev-server --hot --content-base src",
     "build": "webpack",
     "deploy": "set NODE_ENV=production&&webpack -p --progress --colors"
   },
